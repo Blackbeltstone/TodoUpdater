@@ -1,0 +1,13 @@
+[project]
+name = "todoupdater"
+version = "0.1.0"
+description = "A ToDo app with dynamic updates using FastAPI, Jinja2, HTMX, and Uvicorn."
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "fastapi",
+    "jinja2",
+    "uvicorn",
+    "python-multipart",
+    "sqlalchemy"
+]

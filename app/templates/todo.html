@@ -1,0 +1,30 @@
+<!-- FILE: todo.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>ToDo List</h2>
+
+    <!-- Task Form -->
+    <div id="task-form">
+        <form id="add-task-form" hx-post="/add" hx-target="#tasks" hx-swap="innerHTML" hx-on="htmx:afterSwap: clearForm()">
+            <div class="mb-3">
+                <input type="text" class="form-control" name="title" placeholder="Enter a new task" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Task</button>
+        </form>
+    </div>
+
+    <!-- Task List (loaded from partial template) -->
+    <div id="tasks">
+        {% include "task_list.html" %}
+    </div>
+</div>
+
+<!-- JavaScript Function to Clear Input -->
+<script>
+    function clearForm() {
+        document.querySelector('#add-task-form input[name="title"]').value = '';
+    }
+</script>
+{% endblock %}
